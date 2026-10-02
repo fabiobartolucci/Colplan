@@ -15,35 +15,35 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install ImageMagick & Cordova
+      - name: Install Cordova and Build APK
         run: |
-          sudo apt-get update && sudo apt-get install -y imagemagick
           npm install -g cordova
-
-      - name: Build APK
-        run: |
-          cordova create app_build com.colplan.app Colplan
+          cordova create app_build com.miaapp.app MiaApp
           cd app_build
           rm -rf www/*
           cp -r ../* www/ 2>/dev/null || true
-          
-          # 1. Trova il file html principale
-          HTML_FILE=$(ls www/colplan*.html 2>/dev/null | head -n 1)
-          if [ -n "$HTML_FILE" ]; then
-            cp "$HTML_FILE" www/index.html
-          fi
 
-          # 2. Converte l'icona caricata e la applica all'app
-          ICON_FILE=$(ls www/icon.* 2>/dev/null | head -n 1)
-          if [ -n "$ICON_FILE" ]; then
-            convert "$ICON_FILE" www/icon.png
-            sed -i '/<\/widget>/i \    <icon src="www/icon.png" \/>' config.xml
+          HTMLFILE=$(find www -maxdepth 1 -name "*.html" ! -name "index.html" | head -n 1)
+          if [ -n "$HTMLFILE" ]; then
+            mv "$HTMLFILE" www/index.html
           fi
-
-          # 3. Rimuove il blocco dello splash screen
-          sed -i '/splash/d' config.xml 2>/dev/null || true
 
           cordova platform add android
+
+          # Blocco orientamento vero, nativo
+          cordova plugin add cordova-plugin-screen-orientation
+
+          # Dettatura vocale nativa, non quella del browser
+          cordova plugin add cordova-plugin-speechrecognition
+
+          ICONFILE=$(find www -maxdepth 1 -iname "icon.png" | head -n 1)
+          if [ -n "$ICONFILE" ]; then
+            mkdir -p resources
+            cp "$ICONFILE" resources/icon.png
+            npm install -g cordova-res
+            cordova-res android --skip-config --copy
+          fi
+
           cordova build android --no-telemetry
 
       - name: Upload APK
