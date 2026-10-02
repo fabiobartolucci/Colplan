@@ -15,40 +15,45 @@ jobs:
         with:
           node-version: 18
 
+      - name: Install ImageMagick & Cordova
+        run: |
+          sudo apt-get update && sudo apt-get install -y imagemagick
+          npm install -g cordova
+
       - name: Install Cordova and Build APK
         run: |
-          npm install -g cordova
-          cordova create app_build com.miaapp.app MiaApp
+          # 1. Imposta nome Colplan e package ID
+          cordova create app_build com.colplan.app Colplan
           cd app_build
           rm -rf www/*
           cp -r ../* www/ 2>/dev/null || true
 
-          HTMLFILE=$(find www -maxdepth 1 -name "*.html" ! -name "index.html" | head -n 1)
+          # 2. Configura la pagina index.html
+          HTMLFILE=$(find www -maxdepth 1 -iname "*.html" ! -iname "index.html" | head -n 1)
           if [ -n "$HTMLFILE" ]; then
-            mv "$HTMLFILE" www/index.html
+            cp "$HTMLFILE" www/index.html
           fi
 
-          cordova platform add android
-
-          # Blocco orientamento vero, nativo
+          # 3. Tutti i tuoi plugin nativi
           cordova plugin add cordova-plugin-screen-orientation
-
-          # Dettatura vocale nativa, non quella del browser
           cordova plugin add cordova-plugin-speechrecognition
-
-          # Salvare file veri nella cartella Download del telefono
           cordova plugin add cordova-plugin-file
-
-          # La vera schermata di condivisione del telefono
           cordova plugin add cordova-plugin-x-socialsharing
 
-          ICONFILE=$(find www -maxdepth 1 -iname "icon.png" | head -n 1)
+          # 4. Aggiunge la piattaforma Android
+          cordova platform add android
+
+          # 5. Converte l'icona (jpg/jpeg/png) e la applica ovunque su Android
+          ICONFILE=$(find www -maxdepth 1 -iname "icon.*" | head -n 1)
           if [ -n "$ICONFILE" ]; then
-            mkdir -p resources
-            cp "$ICONFILE" resources/icon.png
-            npm install -g cordova-res
-            cordova-res android --skip-config --copy
+            convert "$ICONFILE" www/icon.png
+            find platforms/android/app/src/main/res/ -name "ic_launcher*.png" -exec cp www/icon.png {} \;
+            find platforms/android/app/src/main/res/ -name "screen.png" -exec cp www/icon.png {} \;
+            sed -i '/<\/widget>/i \    <icon src="www/icon.png" \/>' config.xml
           fi
+
+          # 6. Rimuove l'obbligo dello splash screen per evitare blocchi
+          sed -i '/splash/d' config.xml 2>/dev/null || true
 
           cordova build android --no-telemetry
 
