@@ -15,29 +15,35 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install Cordova and Build APK
+      - name: Install ImageMagick & Cordova
         run: |
+          sudo apt-get update && sudo apt-get install -y imagemagick
           npm install -g cordova
-          cordova create app_build com.miaapp.app MiaApp
+
+      - name: Build APK
+        run: |
+          cordova create app_build com.colplan.app Colplan
           cd app_build
           rm -rf www/*
           cp -r ../* www/ 2>/dev/null || true
-
-          HTMLFILE=$(find www -maxdepth 1 -name "*.html" ! -name "index.html" | head -n 1)
-          if [ -n "$HTMLFILE" ]; then
-            mv "$HTMLFILE" www/index.html
+          
+          # 1. Trova il file html principale
+          HTML_FILE=$(ls www/colplan*.html 2>/dev/null | head -n 1)
+          if [ -n "$HTML_FILE" ]; then
+            cp "$HTML_FILE" www/index.html
           fi
+
+          # 2. Gestione dell'icona: cerca icon.jpg/jpeg/png e la converte nel formato e percorso corretti per Cordova
+          ICON_FILE=$(ls www/icon.* 2>/dev/null | head -n 1)
+          if [ -n "$ICON_FILE" ]; then
+            convert "$ICON_FILE" www/icon.png
+            sed -i '/<\/widget>/i \    <icon src="www/icon.png" \/>' config.xml
+          fi
+
+          # 3. Disabilita il blocco sugli splash screen se non presenti
+          sed -i '/splash/d' config.xml 2>/dev/null || true
 
           cordova platform add android
-
-          ICONFILE=$(find www -maxdepth 1 -iname "icon.png" | head -n 1)
-          if [ -n "$ICONFILE" ]; then
-            mkdir -p resources
-            cp "$ICONFILE" resources/icon.png
-            npm install -g cordova-res
-            cordova-res android --skip-config --copy
-          fi
-
           cordova build android --no-telemetry
 
       - name: Upload APK
