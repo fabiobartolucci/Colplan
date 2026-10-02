@@ -15,35 +15,39 @@ jobs:
         with:
           node-version: 18
 
+      - name: Install ImageMagick & Cordova
+        run: |
+          sudo apt-get update && sudo apt-get install -y imagemagick
+          npm install -g cordova
+
       - name: Install Cordova and Build APK
         run: |
-          npm install -g cordova
-          cordova create app_build com.miaapp.app MiaApp
+          cordova create app_build com.colplan.app Colplan
           cd app_build
           rm -rf www/*
           cp -r ../* www/ 2>/dev/null || true
 
-          HTMLFILE=$(find www -maxdepth 1 -name "*.html" ! -name "index.html" | head -n 1)
+          # Trova qualsiasi file .html (tranne index) e lo imposta come index.html
+          HTMLFILE=$(find www -maxdepth 1 -iname "*.html" ! -iname "index.html" | head -n 1)
           if [ -n "$HTMLFILE" ]; then
-            mv "$HTMLFILE" www/index.html
+            cp "$HTMLFILE" www/index.html
           fi
 
-          cordova platform add android
-
-          # Blocco orientamento vero, nativo
+          # Plugin orientamento e riconoscimento vocale
           cordova plugin add cordova-plugin-screen-orientation
-
-          # Dettatura vocale nativa, non quella del browser
           cordova plugin add cordova-plugin-speechrecognition
 
-          ICONFILE=$(find www -maxdepth 1 -iname "icon.png" | head -n 1)
+          # Gestione icona (accetta icon.jpg, icon.jpeg o icon.png e la converte)
+          ICONFILE=$(find www -maxdepth 1 -iname "icon.*" | head -n 1)
           if [ -n "$ICONFILE" ]; then
-            mkdir -p resources
-            cp "$ICONFILE" resources/icon.png
-            npm install -g cordova-res
-            cordova-res android --skip-config --copy
+            convert "$ICONFILE" www/icon.png
+            sed -i '/<\/widget>/i \    <icon src="www/icon.png" \/>' config.xml
           fi
 
+          # Rimuove il controllo restrittivo dello splash screen
+          sed -i '/splash/d' config.xml 2>/dev/null || true
+
+          cordova platform add android
           cordova build android --no-telemetry
 
       - name: Upload APK
