@@ -1,0 +1,149 @@
+# Col.Plan - Lo sapevi che…
+# File letto dall'app all'apertura (pagina iniziale). Va messo accanto all'app, con il nome lo-sapevi-che.txt.
+# Formato: per ogni frase due righe, il testo e il percorso. Tra una frase e l'altra una riga vuota.
+# Le icone si scrivono con due parentesi quadre, per esempio [[lente]] o [[pallini]].
+# Il testo non ripete "Lo sapevi che…": lo scrive la scheda. Le righe che iniziano con # sono commenti.
+
+Nel grafico puoi ingrandire e ridurre la vista anche con due dita. Le avvicini per ridurre, le allontani per ingrandire.
+Home → grafico → [[lentePiu]] [[lenteMeno]] (oppure due dita sul grafico)
+
+Con l'icona [[frecceDiag]] il grafico occupa tutto lo schermo, girato in orizzontale. La stessa icona lo riporta com'era.
+Home → grafico → [[frecceDiag]]
+
+Toccando un punto del grafico compare una finestrella con inclinazione, tonnellate colate e rimanenza. Per chiuderla basta un tocco nel grafico o scorrere la pagina.
+Home → grafico → tocca un punto della curva
+
+Con il pulsante [[frecce]] sul grafico scegli tra tre viste: curva rilevata e colata simulata insieme, solo la colata simulata, solo la curva rilevata.
+Home → grafico → [[frecce]]
+
+Tenendo premuto il campo Ton. colata vedi in anteprima il peso calcolato con l'altra densità. Il colore ti dice quale usi: magenta è la densità di default, blu è la densità reale della lega.
+Home → Dati Colata Attuale → Ton. colata (t), tenendo premuto
+
+Il mirino [[mirino]] accanto alle tonnellate iniziali del forno apre la pagina Verifica tonnellate forno. Scrivi la misura dello scivolo o le tonnellate e l'app calcola l'altro valore dalla tabella Geometria forno.
+Home → Programma Colata → Tonnellate iniziali forno (t) → [[mirino]]
+
+Il lampeggiante [[lampeggiante]] a sinistra dell'inclinazione serve a segnalare che la colata è finita in abort. Appaiono la scritta ABORT COLATA e il campo delle tonnellate colate.
+Home → Cambio Turno → [[lampeggiante]], a sinistra di Inclinazione Forno (%)
+
+Nella pagina Verifica Colata [[verificaColata]], sotto la Partenza calcolata, scorri a destra e a sinistra tra tre viste: partenza minima, media e massima. I tre pallini ti dicono dove sei.
+Home → Cambio Turno → Verifica Colata [[verificaColata]] → Partenza calcolata
+
+Togliendo la spunta a "Includi colata nel calcolo della curva rilevata" la colata resta salvata, ma non modifica più la curva.
+Home → Programma Colata → Aggiungi rilievi colata [[aggiungiColata]] → Colata terminata → Includi colata nel calcolo della curva rilevata
+
+Ogni colata ha il suo offset di inclinazione iniziale. Se lo lasci vuoto vale 0 e prende il posto dell'offset dell'impianto.
+Home → Programma Colata → Aggiungi rilievi colata [[aggiungiColata]] → Offset inclinazione iniziale (%)
+
+Puoi indicare quali leghe usano la densità reale al posto di quella di default. Le aggiungi come eccezioni nelle impostazioni dell'impianto.
+Menu [[pallini]] → Gestione impianti → Impostazioni [[imposta]] → Varie → Densità leghe → Eccezioni
+
+Nella Ricerca leghe la ricerca parte toccando la lente [[lente]] oppure con Invio sulla tastiera dell'app.
+Ricerca leghe (barra in basso) → Lega da cercare → [[lente]]
+
+Nelle Segnalazioni la richiesta puoi scriverla, dettarla, oppure scrivere e dettare insieme.
+Menu [[pallini]] → Segnalazioni → Descrivi la tua richiesta
+
+Nel Calcolatore, nella scheda Travaso, c'è il pulsante Manuale [[mano]]. Lo accendi quando il travaso è già stato fatto e il provino che carichi è quello del forno in attesa. Le prime due colonne dei forni si spengono e il calcolo usa solo il forno scelto e il primario.
+Calcolatore (barra in basso) → Travaso → Manuale [[mano]]
+
+Toccando due volte velocemente lo stesso punto dell'app compare un menu rapido con tre scorciatoie. Il doppio tocco non funziona su campi, pulsanti, schede, piede della pagina e grafico.
+Doppio tocco veloce in un punto qualsiasi dell'app (non su campi, pulsanti, schede, piede della pagina, grafico)
+
+Nel menu rapido il pulsante Manuale [[aiuto]] apre il manuale direttamente sul capitolo del punto che hai toccato. Se in quel punto ci sono più argomenti, ti mostra l'elenco.
+Doppio tocco veloce → Manuale [[aiuto]]
+
+Nel menu rapido il pulsante Segnalazioni [[segn]], tenuto premuto, apre subito la dettatura per scrivere una nuova segnalazione.
+Doppio tocco veloce → Segnalazioni [[segn]], tenuto premuto
+
+Il pulsante Riduci a icona trasforma Verifica Colata, Aggiungi colata, Manuale e Segnalazioni in un tondo mobile. I dati restano, e li ritrovi toccando il tondo.
+Pagine Verifica Colata, Aggiungi colata, Manuale d'uso, Segnalazioni → pulsante tondo in basso a destra
+
+Per chiudere una pagina ridotta trascini il tondo sul cerchio Chiudi che compare in basso al centro. Se c'è qualcosa non salvato, l'app te lo chiede prima.
+Pagina ridotta → trascina il tondo sul cerchio Chiudi in basso al centro
+
+Se chiudi e riapri l'app, i tondi delle pagine ridotte ricompaiono con i dati già scritti.
+Chiudi e riapri l'app
+
+Il Calcolatore ha quattro sezioni, Semplice, Travaso, Alliganti e Riassunto, e le cambi scorrendo a destra e a sinistra. Si apre sempre su Travaso, e quattro pallini ti dicono dove sei.
+Calcolatore (barra in basso) → scorri a destra e a sinistra
+
+Nel Travaso, trascinando il dito verso il basso sulla pagina 1/3, si apre il cassetto dei forni. Lì scegli per ogni colonna un forno fusorio, un forno attesa o il primario.
+Calcolatore (barra in basso) → Travaso → pagina 1/3 → trascina verso il basso
+
+In fondo alle pagine Travaso e Alliganti c'è il cassetto dei limiti della lega, che apri trascinando la scheda verso l'alto. Chiuso, ti mostra solo le icone: spunta verde, triangolo giallo, croce rossa.
+Calcolatore (barra in basso) → Travaso o Alliganti → in fondo, trascina verso l'alto
+
+I campi che hai scritto a mano nel Travaso hanno lo sfondo azzurro ciano, così li distingui da quelli letti da foto.
+Calcolatore (barra in basso) → Travaso
+
+L'icona fotocamera [[fotocamera]] sopra un forno legge il provino da una foto, nuova o già in galleria. Se usi la lettura con Tesseract è più veloce, con l'IA è più lenta ma può essere più precisa.
+Calcolatore (barra in basso) → Travaso → [[fotocamera]] sopra il forno
+
+Dopo la lettura del provino non scrivi niente finché non confermi. Le righe con un avviso vanno confermate una per una, e Annulla chiude senza sovrascrivere nulla.
+Calcolatore (barra in basso) → Travaso → [[fotocamera]] → Lettura provino → Conferma
+
+Il pulsante Nuovo travaso, a destra sopra la quinta colonna, rende grigi i forni letti da foto per dire che quel travaso è chiuso. Non cancella niente e non cambia i calcoli.
+Calcolatore (barra in basso) → Travaso → Nuovo travaso, a destra sopra la quinta colonna
+
+Nella scheda Alliganti puoi scrivere a mano i kg per pezzo. Il valore vale solo per il calcolo in corso, e se lo cancelli torna quello impostato in Package.
+Calcolatore (barra in basso) → Alliganti → kg per pezzo
+
+Nel Riassunto il pulsante Salva [[salva]] conserva le quantità di alliganti. Ogni alligazione salvata ha una casella da spuntare quando hai notificato gli alliganti usati.
+Calcolatore (barra in basso) → Riassunto → Salva [[salva]]
+
+Una lega già cercata non viene cercata di nuovo, ma riaperta dall'archivio. Maiuscole, spazi e trattini nel nome non contano.
+Ricerca leghe (barra in basso) → Lega da cercare
+
+L'archivio delle leghe cercate è diviso in schede per famiglia, 1000, 3000, 5000 e così via. Le leghe senza cifre sono nella scheda Altre.
+Ricerca leghe (barra in basso) → archivio sotto il campo di ricerca
+
+La scheda tecnica di una lega ha sette schede, dall'analisi chimica alle applicazioni, e le cambi scorrendo.
+Ricerca leghe (barra in basso) → tocca una lega nell'archivio → Scheda tecnica
+
+Nelle Pillole di fonderia la lente [[lente]] cerca da tre caratteri in poi. Ti mostra la frase dove compare il termine, evidenziato, e sotto la pillola a cui appartiene.
+Pillole di fonderia (barra in basso) → [[lente]]
+
+In fondo a ogni pillola ci sono Precedente, Sommario e Successivo per passare da una pillola all'altra.
+Pillole di fonderia (barra in basso) → apri una pillola → in basso
+
+A schermo intero la linguetta sul bordo destro del grafico apre Confronta colate. Con l'occhio mostri o nascondi ogni colata, e con l'occhio generale le accendi o spegni tutte insieme.
+Home → grafico → [[frecceDiag]] → linguetta sul bordo destro
+
+Nel Centro notifiche, quando c'è una notifica, il numero compare sull'icona dei tre pallini in ogni pagina. Toccando la notifica si apre la pagina in cui risolverla.
+Menu [[pallini]] → Centro notifiche
+
+Nella pagina Pulizia forno una barra ti mostra le incrostazioni stimate. È verde, diventa gialla oltre la Percentuale giallo e rossa quando raggiunge la Soglia.
+Pulizia forno [[pulizia]] (barra in basso) → Incrostazioni stimate
+
+Nella pagina Pulizia forno puoi spostare col dito un cursore da 0% a 100%. Parte dall'inclinazione di chiusura della colata in programma e ti mostra di quanto sale per colpa delle incrostazioni.
+Pulizia forno [[pulizia]] (barra in basso) → Inclinazione prevista chiusura colata
+
+Il grafico della Pulizia forno ha quattro viste da scorrere: incidenza delle incrostazioni nel tempo, curva di riferimento a forno pulito, curva attuale e le curve a confronto con la rilevata.
+Pulizia forno [[pulizia]] (barra in basso) → Grafico → [[frecce]]
+
+Nel grafico delle incrostazioni, toccando un punto, compaiono la data e il valore.
+Pulizia forno [[pulizia]] (barra in basso) → Grafico → tocca un punto
+
+Dopo aver pulito il forno devi toccare Azzera contatore. Da quel momento il conteggio riparte dai rilievi delle colate successive.
+Pulizia forno [[pulizia]] (barra in basso) → Azzera contatore
+
+Quando le incrostazioni raggiungono la soglia, l'app ti manda la notifica Pulizia forno suggerita. Un pallino ti guida fino all'icona della barra e alla scheda Pulizia forno.
+Menu [[pallini]] → Centro notifiche → Pulizia forno suggerita
+
+Anche con la funzione Pulizia forno disabilitata, il contatore delle incrostazioni si aggiorna comunque. Disabilitata, non corregge le previsioni di inclinazione e rimanenza.
+Menu [[pallini]] → Gestione impianti → Impostazioni [[imposta]] → Pulizia forno → Abilitazioni → Abilita funzione pulizia forno
+
+L'icona della Pulizia forno nella barra in basso compare solo se la accendi nelle impostazioni dell'impianto. Spenta, la barra ha quattro icone.
+Menu [[pallini]] → Gestione impianti → Impostazioni [[imposta]] → Pulizia forno → Abilitazioni → Mostra icona sulla barra di navigazione inferiore
+
+Per caricare un nuovo provino è sufficiente scattargli una foto. Tocca l'icona fotocamera [[fotocamera]] sopra il forno: l'app legge i valori e te li fa controllare prima di scriverli.
+Calcolatore (barra in basso) → Travaso → [[fotocamera]]
+
+Con il pulsante Verifica Colata [[verificaColata]] puoi verificare una colata in corso e sapere in anticipo le tonnellate rimanenti, l'inclinazione di chiusura e le tonnellate di partenza.
+Home → Cambio Turno → Verifica Colata [[verificaColata]]
+
+Il valore target impostato nei limiti della lega è il punto di arrivo del calcolo degli alliganti: l'app calcola quanti kg servono per portare l'elemento dal valore calcolato nel Travaso fino al target.
+Menu [[pallini]] → Impostazioni calcolatore → Leghe → famiglia → lega → Valori
+
+Il pulsante Conferma della pagina Lettura provino si abilita solo dopo aver confermato ogni riga che presenta una segnalazione e aver scorso fino all'ultima pagina del provino.
+Calcolatore (barra in basso) → Travaso → [[fotocamera]] sopra il forno → Lettura provino
